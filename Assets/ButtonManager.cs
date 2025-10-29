@@ -64,6 +64,9 @@ public class ButtonManager : MonoBehaviour
     public Sprite noteA;
     public Sprite noteF;
 
+    [Header("Tutorial Mode Control")]
+    public bool tutorialModeActive = false; // disables normal strum behavior when true
+
     // timer vars
     private float currentTime = 0f;
     private bool timerRunning = false;
@@ -181,13 +184,17 @@ public class ButtonManager : MonoBehaviour
 
     void OnStrum()
     {
+        // prevent normal game logic if tutorial is controlling the strum
+        if (tutorialModeActive)
+            return;
+
         string targetChord = chordSequence[currentChordIndex];
 
         if (IsChordCorrect(targetChord))
         {
             Debug.Log($"Correct! You played {targetChord}");
             StartCoroutine(ShowFeedback($"Correct! You played {targetChord}", Color.green));
-            SetTeacherExpression("happy"); // make teachr happy emote
+            SetTeacherExpression("happy");
             PlaySound(targetChord);
 
             currentChordIndex++;
@@ -199,9 +206,8 @@ public class ButtonManager : MonoBehaviour
                 feedbackText.text = "You completed all chords!";
                 currentChordText.text = "All chords complete!";
 
-                // hide staff pic when finished during hard mode
                 if (gameMode == "Hard" && staffNoteImage != null)
-                    staffNoteImage.enabled = false; // no staff pic in easy mode
+                    staffNoteImage.enabled = false;
 
                 if (currentTime < bestTime)
                 {
@@ -222,8 +228,8 @@ public class ButtonManager : MonoBehaviour
         else
         {
             Debug.Log($"That’s not {targetChord}, try again!");
-            StartCoroutine(ShowFeedback($"That’s not {targetChord}, try again!", Color.red)); // teacher error msg
-            SetTeacherExpression("sad"); // make him emote sad
+            StartCoroutine(ShowFeedback($"That’s not {targetChord}, try again!", Color.red));
+            SetTeacherExpression("sad");
             PlayErrorSound();
         }
     }
@@ -272,7 +278,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-// audio mapping for chords and notes
+    // audio mapping for chords and notes
     void PlaySound(string chord)
     {
         if (audioSource == null) return;
@@ -284,27 +290,21 @@ public class ButtonManager : MonoBehaviour
                 case "C Major":
                     if (cChordSound != null) audioSource.PlayOneShot(cChordSound);
                     break;
-
                 case "D Major":
                     if (dChordSound != null) audioSource.PlayOneShot(dChordSound);
                     break;
-
                 case "D Minor":
                     if (dMinorSound != null) audioSource.PlayOneShot(dMinorSound);
                     break;
-
                 case "G Major":
                     if (gChordSound != null) audioSource.PlayOneShot(gChordSound);
                     break;
-
                 case "A Minor":
                     if (aMinorSound != null) audioSource.PlayOneShot(aMinorSound);
                     break;
-
                 case "E Minor":
                     if (eMinorSound != null) audioSource.PlayOneShot(eMinorSound);
                     break;
-
                 default:
                     Debug.LogWarning("No chord sound assigned for " + chord);
                     break;
@@ -317,23 +317,18 @@ public class ButtonManager : MonoBehaviour
                 case "Note C":
                     if (noteCSound != null) audioSource.PlayOneShot(noteCSound);
                     break;
-
                 case "Note G":
                     if (noteGSound != null) audioSource.PlayOneShot(noteGSound);
                     break;
-
                 case "Note F":
                     if (noteFSound != null) audioSource.PlayOneShot(noteFSound);
                     break;
-
                 case "Note D":
                     if (noteDSound != null) audioSource.PlayOneShot(noteDSound);
                     break;
-
                 case "Note A":
                     if (noteASound != null) audioSource.PlayOneShot(noteASound);
                     break;
-
                 default:
                     Debug.LogWarning("No note sound assigned for " + chord);
                     break;
@@ -356,11 +351,9 @@ public class ButtonManager : MonoBehaviour
             case "happy":
                 if (teacherHappy != null) teacherImage.sprite = teacherHappy;
                 break;
-
             case "sad":
                 if (teacherSad != null) teacherImage.sprite = teacherSad;
                 break;
-
             default:
                 if (teacherNeutral != null) teacherImage.sprite = teacherNeutral;
                 break;
@@ -400,19 +393,15 @@ public class ButtonManager : MonoBehaviour
                 case "Note C":
                     staffNoteImage.sprite = noteC;
                     break;
-
                 case "Note G":
                     staffNoteImage.sprite = noteG;
                     break;
-
                 case "Note F":
                     staffNoteImage.sprite = noteF;
                     break;
-
                 case "Note D":
                     staffNoteImage.sprite = noteD;
                     break;
-
                 case "Note A":
                     staffNoteImage.sprite = noteA;
                     break;
@@ -442,6 +431,7 @@ public class ButtonManager : MonoBehaviour
         cb.selectedColor = color;
         button.colors = cb;
     }
+
     void PrintCurrentCombo() // print currently clicked buttons on fretboard
     {
         if (activeButtons.Count == 0)
@@ -449,7 +439,6 @@ public class ButtonManager : MonoBehaviour
             Debug.Log("No buttons pressed.");
             return;
         }
-
         string combo = string.Join(", ", activeButtons);
         Debug.Log("Current combo: " + combo);
     }

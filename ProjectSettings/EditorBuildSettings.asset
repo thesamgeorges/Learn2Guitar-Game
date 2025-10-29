@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: ef8b98bc776134642a30fcba1fe4e5f5
+  - enabled: 1
+    path: Assets/Scenes/CheatSheet.unity
+    guid: 67fdc3f2a15f9498c9a6417078fb056a
   m_configObjects: {}

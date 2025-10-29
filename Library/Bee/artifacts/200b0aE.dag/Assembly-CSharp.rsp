@@ -359,6 +359,7 @@
 -analyzer:"/Applications/Unity/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/ButtonManager.cs"
+"Assets/CheatSheetMenu.cs"
 "Assets/GameMenu.cs"
 "Assets/MenuManager.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
@@ -395,6 +396,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/TutorialManager.cs"
 "Assets/TutorialMenu.cs"
 -langversion:9.0
 

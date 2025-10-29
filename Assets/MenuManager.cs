@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    // load different scenes from main menu
     public void LoadTutorial()
     {
         SceneManager.LoadScene("Tutorial");
@@ -18,6 +19,11 @@ public class MenuManager : MonoBehaviour
     {
         PlayerPrefs.SetString("GameMode", "Hard");
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void LoadCheatSheet()
+    {
+        SceneManager.LoadScene("CheatSheet");
     }
 
     public void QuitGame()

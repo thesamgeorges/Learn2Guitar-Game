@@ -2096,8 +2096,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5521,7 +5521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5705774, g: 0.8867924, b: 0.45594516, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9010,7 +9010,7 @@ MonoBehaviour:
   pressedColor: {r: 0.018880725, g: 1, b: 0, a: 1}
   timerText: {fileID: 1753929787}
   bestTimeText: {fileID: 152952156}
-  resetBestTime: 1
+  resetBestTime: 0
   audioSource: {fileID: 1965231103}
   cChordSound: {fileID: 8300000, guid: 24c69dca3cd1e4165b61b1caa72691b6, type: 3}
   gChordSound: {fileID: 8300000, guid: 632525c9a397e4d94b1f1498994c16d3, type: 3}
@@ -9035,6 +9035,7 @@ MonoBehaviour:
   noteD: {fileID: 21300000, guid: 03ea03d21bc9f4acf9a91189cc667ce1, type: 3}
   noteA: {fileID: 21300000, guid: 4238e62b0929b48bbb718a9ab740b6b6, type: 3}
   noteF: {fileID: 21300000, guid: fde27331a01114afa9fb7824a544d097, type: 3}
+  tutorialModeActive: 0
 --- !u!65 &1965231099
 BoxCollider:
   m_ObjectHideFlags: 0

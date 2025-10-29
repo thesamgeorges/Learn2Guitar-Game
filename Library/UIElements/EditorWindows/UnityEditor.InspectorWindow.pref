@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Keys:
   - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-buttons__UnityEngine.UIElements.ListView
+  - __PanelContainer__rootVisualContainer__inspector-window-main-scroll-view__unity-list-guitarButtons__UnityEngine.UIElements.ListView
   m_Values:
   - '{"m_ShowAlternatingRowBackgrounds":0,"serializedVirtualizationData":{"scrollOffset":{"x":0.0,"y":451.0},"firstVisibleIndex":20,"contentPadding":440.0,"contentHeight":924.0,"anchoredItemIndex":20,"anchorOffset":11.0}}'
+  - '{}'
